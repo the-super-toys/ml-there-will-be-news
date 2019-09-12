@@ -31,8 +31,8 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client.therewillbenews
 news = db.news
 
-tokenizer = torch.hub.load('huggingface/pytorch-transformers', 'tokenizer', 'gpt2-medium')
-model = torch.hub.load('huggingface/pytorch-transformers', 'modelWithLMHead', 'gpt2-medium')
+tokenizer = torch.hub.load('huggingface/pytorch-transformers:1.2.0', 'tokenizer', 'gpt2-medium')
+model = torch.hub.load('huggingface/pytorch-transformers:1.2.0', 'modelWithLMHead', 'gpt2-medium')
 model.load_state_dict(torch.load('models/medium_news_model.pt', map_location=torch.device('cpu')))
 model.eval()
 
